@@ -1,12 +1,466 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<title>Yuval Raz CV</title>
-		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
-		<meta name="google-site-verification" content="D-gc-MGlAPuDPphtkGo2Fnbrga8mCnrqkwwoenEsjnA" />
-	</head>
-	<body style="margin:0px;padding:0px;overflow:hidden">
-		<iframe src="https://sway.office.com/s/ZgQ5a1YILmf9C5gC/embed" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>
-	</body>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Yuval Raz — Senior Software Engineer</title>
+<meta name="description" content="Yuval Raz — Senior Software Engineer specializing in Java, Spring Boot, GCP, Kubernetes and AI/LLM-driven developer experience." />
+<meta name="google-site-verification" content="D-gc-MGlAPuDPphtkGo2Fnbrga8mCnrqkwwoenEsjnA" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0e10;
+    --bg-alt: #0f151a;
+    --panel: #111820;
+    --border: #1f2b33;
+    --text: #c9d6dd;
+    --text-dim: #6b7f8c;
+    --accent: #39ff88;
+    --accent-dim: #1f8a52;
+    --accent-soft: rgba(57, 255, 136, 0.12);
+    --amber: #ffb454;
+    --red: #ff5f56;
+    --yellow: #ffbd2e;
+    --green: #27c93f;
+    --font: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.6;
+    background-image:
+      radial-gradient(circle at 20% -10%, rgba(57,255,136,0.06), transparent 40%),
+      repeating-linear-gradient(rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 3px);
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+
+  /* Nav */
+  nav.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(10, 14, 16, 0.85);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav.topnav .wrap {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 0.85rem;
+  }
+  nav.topnav a {
+    color: var(--text-dim);
+    padding: 6px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  nav.topnav a:hover,
+  nav.topnav a.active {
+    color: var(--accent);
+    background: var(--accent-soft);
+    text-decoration: none;
+  }
+  nav.topnav a::before { content: "./"; color: var(--text-dim); }
+  nav.topnav a:hover::before,
+  nav.topnav a.active::before { color: var(--accent-dim); }
+
+  /* Terminal window */
+  .terminal-window {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.4), 0 20px 60px -20px rgba(0,0,0,0.6);
+  }
+  .terminal-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: var(--bg-alt);
+    border-bottom: 1px solid var(--border);
+  }
+  .dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+  .dot.red { background: var(--red); }
+  .dot.yellow { background: var(--yellow); }
+  .dot.green { background: var(--green); }
+  .terminal-title {
+    margin-left: 8px;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+  }
+  .terminal-body { padding: 24px; }
+
+  header.hero { padding: 40px 0 24px; }
+
+  .prompt-line { color: var(--text-dim); margin: 0 0 6px; font-size: 0.9rem; }
+  .prompt { color: var(--accent); }
+
+  h1 {
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    margin: 4px 0 6px;
+    color: #fff;
+    letter-spacing: -0.5px;
+  }
+
+  .role-line {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: var(--accent);
+    margin: 0 0 20px;
+    min-height: 1.4em;
+  }
+  .cursor {
+    display: inline-block;
+    width: 9px;
+    height: 1.1em;
+    background: var(--accent);
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    font-size: 0.9rem;
+  }
+  .contact-list li::before { content: "$ "; color: var(--text-dim); }
+
+  section { padding: 36px 0; border-top: 1px solid var(--border); }
+  section:first-of-type { border-top: none; }
+
+  .section-title {
+    font-size: 1rem;
+    color: var(--text-dim);
+    margin: 0 0 20px;
+  }
+  .section-title .prompt { color: var(--accent); }
+  .section-title .cmd { color: var(--text); }
+
+  .about p { max-width: 70ch; }
+
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+  }
+  .skill-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .skill-card h3 {
+    margin: 0 0 10px;
+    font-size: 0.85rem;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pill {
+    font-size: 0.8rem;
+    padding: 3px 9px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text);
+    background: rgba(255,255,255,0.02);
+  }
+
+  /* Experience */
+  .job {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 30px;
+    border-left: 2px solid var(--border);
+  }
+  .job::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+  }
+  .job-header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; margin-bottom: 4px; }
+  .job-role { color: #fff; font-weight: 700; font-size: 1.02rem; }
+  .job-company { color: var(--accent); }
+  .job-dates { color: var(--text-dim); font-size: 0.82rem; margin-left: auto; white-space: nowrap; }
+  .job ul { margin: 8px 0 0; padding-left: 0; list-style: none; }
+  .job li {
+    position: relative;
+    padding-left: 20px;
+    margin: 6px 0;
+    font-size: 0.92rem;
+    color: var(--text);
+  }
+  .job li::before { content: ">"; position: absolute; left: 0; color: var(--text-dim); }
+
+  /* Education */
+  .edu-item { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; }
+  .edu-item .job-dates { margin-left: auto; }
+
+  footer { padding: 30px 0 60px; color: var(--text-dim); font-size: 0.8rem; }
+  footer .prompt { color: var(--accent); }
+
+  @media (max-width: 560px) {
+    .terminal-body { padding: 18px; }
+    .job-dates { margin-left: 0; }
+    .edu-item .job-dates { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="#about">about</a>
+    <a href="#skills">skills</a>
+    <a href="#experience">experience</a>
+    <a href="#education">education</a>
+    <a href="#contact">contact</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="terminal-window">
+      <div class="terminal-bar">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="terminal-title">yuval@raz: ~</span>
+      </div>
+      <div class="terminal-body">
+        <p class="prompt-line"><span class="prompt">$</span> whoami</p>
+        <h1>Yuval Raz</h1>
+        <p class="role-line" id="role" aria-label="Senior Software Engineer"><span class="cursor"></span></p>
+        <p class="prompt-line"><span class="prompt">$</span> cat contact.txt</p>
+        <ul class="contact-list">
+          <li><a href="tel:+972528510105">+972 52-851-0105</a></li>
+          <li><a href="mailto:Yuvalzhe@gmail.com">Yuvalzhe@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/theyuval/" target="_blank" rel="noopener">linkedin.com/in/theyuval</a></li>
+          <li><a href="https://github.com/theyuvalraz" target="_blank" rel="noopener">github.com/theyuvalraz</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <section id="about" class="about">
+    <p class="section-title"><span class="prompt">$</span> <span class="cmd">cat about.md</span></p>
+    <p>
+      Senior Software Engineer with extensive experience in Java, Spring Boot, and cloud technologies
+      (GCP, Kubernetes), with a strong focus on enhancing Developer Experience (DevEx) and integrating
+      AI/Large Language Model (LLM) solutions. Proven expertise in developing scalable applications,
+      automating deployments, and leveraging LLMs to optimize engineering workflows. Passionate about
+      writing clean code and implementing best security practices (OAuth2, Okta). Experienced in
+      High-Level Design (HLD) presentations to VP-level managers and providing strategic consultation
+      on technological solutions, bringing a robust mix of hands-on coding, team collaboration, and
+      AI-driven problem-solving skills.
+    </p>
+  </section>
+
+  <section id="skills">
+    <p class="section-title"><span class="prompt">$</span> <span class="cmd">ls -la skills/</span></p>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Languages</h3>
+        <div class="pill-row">
+          <span class="pill">Java</span><span class="pill">Python</span>
+          <span class="pill">TypeScript</span><span class="pill">C#</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Frameworks &amp; Tech</h3>
+        <div class="pill-row">
+          <span class="pill">Spring Boot</span><span class="pill">Nest</span>
+          <span class="pill">React</span><span class="pill">Node.js</span>
+          <span class="pill">Backstage</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Cloud &amp; DevOps</h3>
+        <div class="pill-row">
+          <span class="pill">GCP</span><span class="pill">Kubernetes</span>
+          <span class="pill">CI/CD</span><span class="pill">Docker</span>
+          <span class="pill">Terraform</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Security</h3>
+        <div class="pill-row">
+          <span class="pill">Okta</span><span class="pill">OAuth2</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Best Practices</h3>
+        <div class="pill-row">
+          <span class="pill">Clean Code</span><span class="pill">TDD</span>
+          <span class="pill">High Test Coverage</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Leadership</h3>
+        <div class="pill-row">
+          <span class="pill">Code Reviews</span><span class="pill">Team Leadership</span>
+          <span class="pill">Mentorship</span><span class="pill">HLD Presentations</span>
+          <span class="pill">Tech Consultation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <p class="section-title"><span class="prompt">$</span> <span class="cmd">git log --oneline experience/</span></p>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-role">Senior Software Engineer</span>
+        <span class="job-company">@ ZoomInfo, Raanana</span>
+        <span class="job-dates">Sep 2021 — Present</span>
+      </div>
+      <ul>
+        <li>Architected and deployed highly available microservices on GCP using Kubernetes, Spring Boot, and React, foundational to critical internal applications.</li>
+        <li>Drove Developer Experience (DevEx) improvements by automating CI/CD pipelines and deployment processes, resulting in faster and more reliable release cycles.</li>
+        <li>Enhanced system security and compliance by implementing robust Okta authentication and access control measures.</li>
+        <li>Provided strategic technology consultation to leadership and presented High-Level Designs (HLD) to VP-level managers, directly influencing company-wide technical direction.</li>
+        <li>Mentored engineers and enforced coding standards through rigorous code reviews, ensuring the delivery of clean, maintainable, and highly testable code.</li>
+        <li>Pioneered the design of a Model Context Protocol (MCP) to standardize and govern AI agent interactions with proprietary internal data sources.</li>
+        <li>Engineered a strategic LLM-based project that scans GitHub repositories to automate code quality audits and identify security vulnerabilities.</li>
+        <li>Leveraged AI-driven engineering tools, including Claude Code, Copilot CLI, Cline, and LangChain, to optimize development workflows and productivity.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-role">Automation Team Lead &amp; Automation Engineer</span>
+        <span class="job-company">@ Spectory, at Google, Tel-Aviv</span>
+        <span class="job-dates">Aug 2018 — Sep 2021</span>
+      </div>
+      <ul>
+        <li>Led a specialized automation team focused on the Google web product, Search Console.</li>
+        <li>Drove test reliability and system efficiency by collaborating directly with senior Google engineers to integrate novel automation strategies for high-scale web applications.</li>
+        <li>Enhanced the core automation framework with new technologies and maintained backend stability through Java development and diligent code reviews.</li>
+        <li>Solely developed a new, high-performance automation framework using Java.</li>
+        <li>Significantly increased test coverage capabilities by extending and optimizing the existing framework.</li>
+        <li>Achieved a "Java Readability" certification, a distinction rarely granted to vendors, allowing for direct participation in Google's internal code review processes.</li>
+        <li>Managed team workflow by prioritizing and delegating a mix of manual and automated quality assurance assignments.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-role">QA, Automation Engineer</span>
+        <span class="job-company">@ Internovus, Herzliya</span>
+        <span class="job-dates">Aug 2016 — Aug 2018</span>
+      </div>
+      <ul>
+        <li>Designed and implemented a robust automation framework following the Behavior-Driven Development (BDD) methodology.</li>
+        <li>Executed comprehensive client/server-side testing for a generic web system utilizing C#, Selenium, and SpecFlow.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-role">QA &amp; Data Analyst</span>
+        <span class="job-company">@ TRACX, Tel-Aviv</span>
+        <span class="job-dates">2013 — 2016</span>
+      </div>
+      <ul>
+        <li>Ensured quality assurance for a complex, client/server-side SaaS platform through rigorous manual testing.</li>
+        <li>Validated critical external API integrations with major platforms including Adobe Marketing Cloud, Google Analytics API, and Facebook Analytics API.</li>
+        <li>Conducted exploratory data analysis on large social network datasets.</li>
+        <li>Leveraged Python libraries (IPython, Pandas, NumPy) to perform data manipulation and analysis, identifying key trends.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <p class="section-title"><span class="prompt">$</span> <span class="cmd">cat education.md</span></p>
+    <div class="edu-item">
+      <span class="job-role">LL.B. (Law)</span>
+      <span class="job-company">College of Law and Business</span>
+      <span class="job-dates">2013</span>
+    </div>
+  </section>
+
+  <section id="contact">
+    <p class="section-title"><span class="prompt">$</span> <span class="cmd">contact --info</span></p>
+    <ul class="contact-list">
+      <li><a href="tel:+972528510105">+972 52-851-0105</a></li>
+      <li><a href="mailto:Yuvalzhe@gmail.com">Yuvalzhe@gmail.com</a></li>
+      <li><a href="https://www.linkedin.com/in/theyuval/" target="_blank" rel="noopener">linkedin.com/in/theyuval</a></li>
+      <li><a href="https://github.com/theyuvalraz" target="_blank" rel="noopener">github.com/theyuvalraz</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p><span class="prompt">$</span> echo "thanks for stopping by" — © <span id="year"></span> Yuval Raz</p>
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var role = "Senior Software Engineer";
+    var el = document.getElementById("role");
+    var cursor = el.querySelector(".cursor");
+    var i = 0;
+    function type() {
+      if (i <= role.length) {
+        el.textContent = role.slice(0, i);
+        el.appendChild(cursor);
+        i++;
+        setTimeout(type, 55);
+      }
+    }
+    type();
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    var links = document.querySelectorAll("nav.topnav a");
+    var sections = Array.prototype.map.call(links, function (a) {
+      return document.querySelector(a.getAttribute("href"));
+    });
+    function onScroll() {
+      var pos = window.scrollY + 120;
+      var activeIndex = 0;
+      sections.forEach(function (sec, idx) {
+        if (sec && sec.offsetTop <= pos) activeIndex = idx;
+      });
+      links.forEach(function (a, idx) {
+        a.classList.toggle("active", idx === activeIndex);
+      });
+    }
+    document.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
+</body>
 </html>
